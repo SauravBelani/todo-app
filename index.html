@@ -8,7 +8,12 @@
 </head>
 <body>
   <main class="app-container">
-    <h1>Todo App</h1>
+    <div class="header">
+      <h1>Todo App</h1>
+      <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light theme">
+        <span class="theme-icon">🌙</span>
+      </button>
+    </div>
     <form id="todo-form" class="todo-form">
       <input type="text" id="todo-input" placeholder="Add a new todo" autocomplete="off" />
       <button type="submit">Add</button>

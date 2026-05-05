@@ -1,7 +1,30 @@
 :root {
   font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background: #f5f7fb;
-  color: #1f2937;
+  --bg-primary: #f5f7fb;
+  --bg-secondary: #ffffff;
+  --text-primary: #1f2937;
+  --border-color: #d1d5db;
+  --item-bg: #f8fafc;
+  --item-border: #e5e7eb;
+  --button-bg: #2563eb;
+  --button-text: white;
+  --completed-text: #6b7280;
+  --delete-color: #ef4444;
+  --shadow: rgba(15, 23, 42, 0.08);
+}
+
+html.dark-theme {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --text-primary: #f1f5f9;
+  --border-color: #475569;
+  --item-bg: #334155;
+  --item-border: #475569;
+  --button-bg: #3b82f6;
+  --button-text: white;
+  --completed-text: #cbd5e1;
+  --delete-color: #f87171;
+  --shadow: rgba(0, 0, 0, 0.3);
 }
 
 * {
@@ -13,20 +36,50 @@ body {
   min-height: 100vh;
   display: grid;
   place-items: center;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .app-container {
   width: min(560px, 90vw);
   padding: 2rem;
-  background: #ffffff;
+  background: var(--bg-secondary);
   border-radius: 18px;
-  box-shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
+  box-shadow: 0 18px 50px var(--shadow);
+  transition: background-color 0.3s ease;
 }
 
 h1 {
-  margin: 0 0 1rem;
+  margin: 0;
   font-size: 2rem;
   text-align: center;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.header h1 {
+  margin: 0;
+  flex: 1;
+}
+
+.theme-toggle {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background: var(--item-bg);
 }
 
 .todo-form {
@@ -38,19 +91,27 @@ h1 {
 #todo-input {
   flex: 1;
   padding: 0.95rem 1rem;
-  border: 1px solid #d1d5db;
+  border: 1px solid var(--border-color);
   border-radius: 12px;
   font-size: 1rem;
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 .todo-form button {
   padding: 0 1.25rem;
   border: none;
   border-radius: 12px;
-  background: #2563eb;
-  color: white;
+  background: var(--button-bg);
+  color: var(--button-text);
   font-weight: 600;
   cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.todo-form button:hover {
+  opacity: 0.9;
 }
 
 .todo-list {
@@ -66,9 +127,10 @@ h1 {
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
-  border: 1px solid #e5e7eb;
+  border: 1px solid var(--item-border);
   border-radius: 14px;
-  background: #f8fafc;
+  background: var(--item-bg);
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .todo-text {
@@ -79,15 +141,16 @@ h1 {
 
 .todo-text.completed {
   text-decoration: line-through;
-  color: #6b7280;
+  color: var(--completed-text);
 }
 
 .delete-button {
   border: none;
   background: transparent;
-  color: #ef4444;
+  color: var(--delete-color);
   font-size: 1rem;
   cursor: pointer;
+  transition: color 0.3s ease;
 }
 
 .delete-button:hover {
