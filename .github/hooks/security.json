@@ -1,0 +1,26 @@
+{
+  "hooks": {
+    "preToolUse": [
+      {
+        "name": "logToolExecution",
+        "description": "Append a record of each tool execution to a log file.",
+        "action": {
+          "type": "append",
+          "path": ".github/hooks/tool-execution.log",
+          "format": "[{timestamp}] tool={toolName} args={toolArgs} session={sessionId} user={userId}\n"
+        }
+      }
+    ],
+    "sessionStart": [
+      {
+        "name": "recordSessionStart",
+        "description": "Record when a new agent session begins.",
+        "action": {
+          "type": "append",
+          "path": ".github/hooks/session-start.log",
+          "format": "[{timestamp}] sessionStart session={sessionId} user={userId} agent={agentName}\n"
+        }
+      }
+    ]
+  }
+}
