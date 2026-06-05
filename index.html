@@ -18,7 +18,12 @@
       <input type="text" id="todo-input" placeholder="Add a new todo" autocomplete="off" required />
       <button type="submit">Add</button>
     </form>
+    <p id="todo-info" class="todo-info" aria-live="polite">No todos yet. Add your first task to get started.</p>
     <ul id="todo-list" class="todo-list"></ul>
+    <div class="todo-footer">
+      <span id="todo-count" class="todo-count">0 tasks left</span>
+      <button id="clear-completed" class="clear-button" type="button">Clear completed</button>
+    </div>
   </main>
   <script src="script.js"></script>
 </body>

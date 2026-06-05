@@ -85,7 +85,7 @@ h1 {
 .todo-form {
   display: flex;
   gap: 0.75rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 #todo-input {
@@ -107,11 +107,50 @@ h1 {
   color: var(--button-text);
   font-weight: 600;
   cursor: pointer;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, transform 0.2s ease;
 }
 
 .todo-form button:hover {
-  opacity: 0.9;
+  opacity: 0.95;
+  transform: translateY(-1px);
+}
+
+.todo-info {
+  margin: 0 0 1.25rem;
+  font-size: 0.97rem;
+  color: var(--completed-text);
+  text-align: center;
+}
+
+.todo-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.todo-count {
+  font-size: 0.95rem;
+  color: var(--text-primary);
+}
+
+.clear-button {
+  border: none;
+  background: transparent;
+  color: var(--button-bg);
+  font-size: 0.95rem;
+  cursor: pointer;
+  font-weight: 600;
+  padding: 0.5rem 0.75rem;
+  border-radius: 10px;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.clear-button:hover {
+  background: rgba(37, 99, 235, 0.08);
 }
 
 .todo-list {
@@ -130,13 +169,32 @@ h1 {
   border: 1px solid var(--item-border);
   border-radius: 14px;
   background: var(--item-bg);
-  transition: background-color 0.3s ease, border-color 0.3s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.15s ease;
+}
+
+.todo-item:hover {
+  transform: translateY(-1px);
 }
 
 .todo-text {
   margin: 0;
   word-break: break-word;
   cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+}
+
+.todo-text:focus-visible,
+.theme-toggle:focus-visible,
+.todo-form button:focus-visible,
+.clear-button:focus-visible,
+.delete-button:focus-visible {
+  outline: 2px solid var(--button-bg);
+  outline-offset: 2px;
 }
 
 .todo-text.completed {
@@ -156,3 +214,4 @@ h1 {
 .delete-button:hover {
   text-decoration: underline;
 }
+
